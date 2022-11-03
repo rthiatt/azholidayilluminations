@@ -17,10 +17,10 @@ const Background = styled.div`
 function App() {
   
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Background className="app">     
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/quote" element={<Form formType={"quote"}/>} />
         <Route path="/repair" element={<Form formType={"repair"}/>} />
         <Route path="/takedown" element={<Form formType={"takedown"}/>} />

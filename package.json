@@ -1,6 +1,7 @@
 {
   "name": "azholidayilluminations",
   "version": "0.1.0",
+  "homepage": "https://rthiatt.github.io/azholidayilluminations/",
   "private": true,
   "proxy": "https://script.google.com/macros/library/d/14CD2L_nah_rUzdtZbdqAdo_LHLJ_cdOZ_W_7Q9kqtUeRY1DFaFTV5xIS",
   "dependencies": {
@@ -8,6 +9,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "better-react-carousel": "^1.1.1",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
@@ -20,6 +22,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
