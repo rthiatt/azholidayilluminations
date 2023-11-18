@@ -3,16 +3,9 @@ import Home from "./components/Home.jsx";
 import Form from "./components/Form.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// TODO
-// 3. Connect domain to hosting
-// 5. Link Social Media to buttons
-// Send email notification when someone adds a request
-// Set up required fields
-
 const Background = styled.div`
   text-align: center;
 `
-
 
 function App() {
   

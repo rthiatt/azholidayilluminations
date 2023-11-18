@@ -18,27 +18,13 @@ function FormItems(props, setProblemLocation, problemLocation, setServiceType, s
     } else {
         return (
             <>
-
             {props.formType === "quote" ? 
-            <div className="input-style" style={{'alignItems' : "flex-start", marginRight: "2vw", marginBottom: "3vw"}}>
-                {/* <label htmlFor='name'>Service Type</label> */}
-                
-                {/* <StyledSelect defaultValue={"Select..."} onChange={e => props.setServiceType(e.target.value)} value={serviceType} type="text" id="serviceType" name="serviceType" >
-                    <option disabled>Select...</option>
-                    <option>Trim on the front of the house</option>
-                    <option>Trim on all sides of the house</option>
-                    <option>Tree Wrapping</option>
-                    <option>Bush Decoration</option>
-                    <option>Tree Delivery</option>
-                    <option>Other (Please describe in Notes)</option>
-                </StyledSelect> */}
-            
+            <div className="input-style" style={{'alignItems' : "flex-start", marginRight: "2vw", marginBottom: "3vw"}}>          
                 <label><StyledCheckBox onChange={(e) => props.handleCheckboxChange(e)} option={1} type="checkbox" id="option1" name="option1" value={"Trim on the front of the house"}></StyledCheckBox>Trim on the front of the house</label>
                 <label><StyledCheckBox onChange={(e) => props.handleCheckboxChange(e)} option={2} type="checkbox" id="option1" name="option1" value={"Trim on all sides of the house"}></StyledCheckBox>Trim on all sides of the house</label>
                 <label><StyledCheckBox onChange={(e) => props.handleCheckboxChange(e)} option={3} type="checkbox" id="option1" name="option1" value={"Tree Wrapping"}></StyledCheckBox>Tree Wrapping</label>
                 <label><StyledCheckBox onChange={(e) => props.handleCheckboxChange(e)} option={4} type="checkbox" id="option1" name="option1" value={"Bush Decoration"}></StyledCheckBox>Bush Decoration</label>
                 <label><StyledCheckBox onChange={(e) => props.handleCheckboxChange(e)} option={5} type="checkbox" id="option1" name="option1" value={"Tree Delivery"}></StyledCheckBox>Tree Delivery</label>
-                
             </div> 
             : null}
 
@@ -78,8 +64,130 @@ const Form = (props) => {
     const [zipcode, setZipcode] = useState("");
     const [notes, setNotes] = useState("");
 
-    let url = 'https://api.sheety.co/737303563a16427d0b5aaa2b5466b384/quoteRequestQuestionnaire/formResponses1'
+    // let url = 'https://api.sheety.co/737303563a16427d0b5aaa2b5466b384/quoteRequestQuestionnaire/formResponses1'
     
+    function getURLFromFormType() {
+        const formType = requestType
+
+        if (formType === "Quote") {
+            return 'https://discord.com/api/webhooks/1174190572781707324/0ugBIdmH-3AuwenpRWs9K971tc-cq3iPy02wn5sZIa0F7JH9UhWv6XhwsfaS9pOM9HQ2'
+        } else if (formType === "Repair") {
+            return 'https://discord.com/api/webhooks/1174190737492025344/IFg4aTp9N0WItspvwm4rA7bD7qj6IHDEh3UvVw4vwYmua3GUXg0HopA0jtWzXnKEiNFi'
+        } else if (formType === "Take Down") {
+            return 'https://discord.com/api/webhooks/1174191247322263573/CnIjhA8ppXmOBX9tXAZsA_L3ULVvA9aYHHMbVdGbs-BeQ8ief5ZJ-2NbB0TOYaW_Jd-J'
+        } else {
+            return ''
+        }
+    }
+
+    function generateRequestDiscordData(formData) {
+        if (formData.requestType === 'Quote') {
+            return {
+                embeds: [{
+                    title: `📝 ${formData.requestType} Request - ${formData.timestamp}\n`,
+                    color: 3447003,
+                    fields: [
+                        {
+                            name: "👤 Client Information",
+                            value: `**Name:** ${formData.name}\n**Email:** ${formData.email}\n**Phone:** ${formData.phone}\n**Preferred Contact:** ${formData.bestContact}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "📍 Location",
+                            value: `${formData.address}, ${formData.city}, ${formData.zipcode}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "🏷️ Request Details",
+                            value: `**Type:** ${formData.requestType}\n**Service/s Needed:**\n- ${formData.serviceType.split(",").join("\n- ")}\n**HOA:** ${formData.hoa}\n`,
+                            inline: false
+                        },
+                        {
+                            name: "📅 Date Range",
+                            value: `${formData.startDate} to ${formData.lastDate}\n`,
+                            inline: false
+                        },
+                        {
+                            name: "📝 Additional Notes",
+                            value: formData.notes,
+                            inline: false
+                        }
+                    ]
+                }]
+            }
+        }
+        else if (formData.requestType === 'Repair') {
+            return {
+                embeds: [{
+                    title: `📝 ${formData.requestType} Request - ${formData.timestamp}\n`,
+                    color: 3447003,
+                    fields: [
+                        {
+                            name: "👤 Client Information",
+                            value: `**Name:** ${formData.name}\n**Email:** ${formData.email}\n**Phone:** ${formData.phone}\n**Preferred Contact:** ${formData.bestContact}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "📍 Location",
+                            value: `${formData.address}, ${formData.city}, ${formData.zipcode}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "🏷️ Request Details",
+                            value: `**Type:** ${formData.requestType}\n**HOA:** ${formData.hoa}\n`,
+                            inline: false
+                        },
+                        {
+                            name: "⚠️ Problem Location",
+                            value: formData.problemLocation,
+                            inline: true
+                        },
+                        {
+                            name: "📝 Problem Explanation",
+                            value: formData.notes,
+                            inline: true
+                        }
+                    ]
+                }]
+            }
+        } else if (formData.requestType === 'Take Down') {
+            return {
+                embeds: [{
+                    title: `📝 ${formData.requestType} Request - ${formData.timestamp}\n`,
+                    color: 3447003,
+                    fields: [
+                        {
+                            name: "👤 Client Information",
+                            value: `**Name:** ${formData.name}\n**Email:** ${formData.email}\n**Phone:** ${formData.phone}\n**Preferred Contact:** ${formData.bestContact}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "📍 Location",
+                            value: `${formData.address}, ${formData.city}, ${formData.zipcode}\n`,
+                            inline: true
+                        },
+                        {
+                            name: "🏷️ Request Details",
+                            value: `**Type:** ${formData.requestType}\n**HOA:** ${formData.hoa}\n`,
+                            inline: false
+                        },
+                        {
+                            name: "📅 Date Range",
+                            value: `${formData.startDate} to ${formData.lastDate}\n`,
+                            inline: false
+                        },
+                        {
+                            name: "📝 Additional Notes",
+                            value: formData.notes,
+                            inline: false
+                        }
+                    ]
+                }]
+            }
+
+        }
+    }
+
     function handleCheckboxChange(e) {
         e.target.checked ? serviceType?.push(e.target.value) : serviceType?.splice(serviceType.indexOf(e.target.value), 1) 
     }
@@ -99,12 +207,15 @@ const Form = (props) => {
         e.preventDefault()
         setLoading(true)
 
-        fetch(url, {
+        formData = formData.formResponses1
+
+        const data = generateRequestDiscordData(formData)
+
+        fetch(getURLFromFormType(), {
             method: 'POST',
-            body: JSON.stringify(formData),
+            body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json',
-                "Authorization": "Basic YXpob2xpZGF5aWxsdW1pbmF0aW9uc0BnbWFpbC5jb206VHJ1c3QzZDEh"
+                'Content-Type': 'application/json'
             }
         })
         .then((res) => {
@@ -127,11 +238,12 @@ const Form = (props) => {
     
                 MySwal.fire({
                     title: <SwalText>Thank you!</SwalText>,
-                    html: <SwalText>Someone will be reaching to you soon!</SwalText>,
+                    html: <SwalText>Someone will be reaching out to you soon!</SwalText>,
                     icon: 'success',
                     confirmButtonColor: '#329437',
                     width: ("80%")
-                }).then((result) => {
+                })
+                .then((result) => {
                     if (result.isConfirmed) {
                         navigate('/')
                     }
