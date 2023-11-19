@@ -1,7 +1,7 @@
 {
   "name": "azholidayilluminations",
   "version": "0.1.0",
-  "homepage": "https://rthiatt.github.io/azholidayilluminations/",
+  "homepage": "https://azholidayilluminations.com",
   "private": true,
   "proxy": "https://script.google.com/macros/library/d/14CD2L_nah_rUzdtZbdqAdo_LHLJ_cdOZ_W_7Q9kqtUeRY1DFaFTV5xIS",
   "dependencies": {
@@ -23,7 +23,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
