@@ -59,7 +59,7 @@ const SocialMediaPanel = React.forwardRef((props, ref) => (
 
         <OuterDiv style={{"margin" : "3vw"}}>
             <StyledHeader>Call Us</StyledHeader>
-            <Text>Coming Soon!</Text>
+            <Text>602-390-5007</Text>
         </OuterDiv>
     </MainSection>
 ))

@@ -23,16 +23,7 @@ const RequestPanel = styled.div`
 
   scroll-margin-top: 10vw;
 `
-const Image = styled.img`
-    border-radius: 8px;
-    /* margin: 10px; */
-    height: 30vw;
 
-    @media (max-width: 500px) {
-        height: 64vw;
-    }
-    
-`
 const LogoComponent = () => {
   const { height, width } = useWindowDimensions();
 
@@ -87,74 +78,11 @@ function Home() {
 
     return (
         <>
-            <Navbar refs={refs}/>
+            {/* <Navbar refs={refs}/> */}
             <MainContainer ref={HomeRef}>
                 {/* LOGO */}
                 <LogoComponent />
-
-                <button onClick={() => {
-                  const formData = {
-                    requestType: "Quote",
-                    serviceType: ["Trim on the front of the house", "Tree Wrapping"],
-                    startDate: "2023-11-20",
-                    endDate: "2023-11-25",
-                    name: "John Doe",
-                    email: "johndoe@example.com",
-                    phone: "123-456-7890",
-                    bestContact: "Email",
-                    hoa: "Yes",
-                    address: "123 Main St",
-                    city: "Springfield",
-                    zipcode: "12345",
-                    notes: "Please check the back entrance."
-                  };
-                  
-                  const data = {
-                    embeds: [{
-                      title: "📝 Quote Request",
-                      color: 3447003, // A blue color, for example
-                      fields: [
-                        {
-                          name: "🏷️ Request Details",
-                          value: `**Type:** ${formData.requestType}\n**Service Needed:** ${formData.serviceType.join(", ")}\n**HOA:** ${formData.hoa}`,
-                          inline: false
-                        },
-                        {
-                          name: "📅 Date Range",
-                          value: `${formData.startDate} to ${formData.endDate}`,
-                          inline: true
-                        },
-                        {
-                          name: "📍 Location",
-                          value: `${formData.address}, ${formData.city}, ${formData.zipcode}`,
-                          inline: true
-                        },
-                        {
-                          name: "👤 Client Information",
-                          value: `**Name:** ${formData.name}\n**Email:** ${formData.email}\n**Phone:** ${formData.phone}\n**Preferred Contact:** ${formData.bestContact}`,
-                          inline: false
-                        },
-                        {
-                          name: "📝 Additional Notes",
-                          value: formData.notes,
-                          inline: false
-                        }
-                      ]
-                    }]
-                  };
-
-                  fetch('https://discord.com/api/webhooks/1174190572781707324/0ugBIdmH-3AuwenpRWs9K971tc-cq3iPy02wn5sZIa0F7JH9UhWv6XhwsfaS9pOM9HQ2', {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                  })
-                  .then(res => {
-                    console.log(res)
-                  })
-                }}>Test</button>
-
+                
                 {/* INTRO */}
                 <Section title="Making the Holidays Brighter" ref={AboutRef}>
                     What started out as providing quality lighting for family and friends is now a passion to deliver the same high-quality decorations to your family. 

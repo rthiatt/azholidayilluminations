@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali&family=Mountains+of+Christmas&display=swap');
+
 body {
   margin: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
 
-  font-family: 'Hanalei Fill', cursive;
+  font-family: 'Mali', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -39,4 +38,32 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (max-width: 768px) {
+  .form-container {
+      flex-direction: column;
+  }
+}
+
+.form-container {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input-style {
+  flex: 1;
+}
+
+.group {
+  margin-top: 45px;
+}
+
+.dates-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }

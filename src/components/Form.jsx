@@ -28,13 +28,15 @@ function FormItems(props, setProblemLocation, problemLocation, setServiceType, s
             </div> 
             : null}
 
-            <div className="input-style">
-                <label htmlFor='name'>Start Date</label>
-                <StyledInput onChange={e => props.setStartDate(e.target.value)} value={startDate} type="date" id="startDate" name="startDate" />
-            </div>
-            <div className="input-style">
-                <label htmlFor='name'>Last Date</label>
-                <StyledInput onChange={e => props.setEndDate(e.target.value)} value={endDate} type="date" id="lastDate" name="lastDate" />
+            <div className='dates-group'>
+                <div className="input-style">
+                    <label htmlFor='name'>Start Date</label>
+                    <StyledInput onChange={e => props.setStartDate(e.target.value)} value={startDate} type="date" id="startDate" name="startDate" />
+                </div>
+                <div className="input-style">
+                    <label htmlFor='name'>Last Date</label>
+                    <StyledInput onChange={e => props.setEndDate(e.target.value)} value={endDate} type="date" id="lastDate" name="lastDate" />
+                </div>
             </div>
             </>
         )
@@ -281,7 +283,7 @@ const Form = (props) => {
             setRequestType('Take Down')
         }
     }, [])
-
+    console.log(props.formType)
     return (
         <Container>
             <Header type={props.formType}/>
@@ -290,53 +292,60 @@ const Form = (props) => {
                 
                 {/* ALL FORMS */}
                 <FormGroup>
-
-                    <div className="input-style">
-                        <label htmlFor='name'>Name</label>
-                        <StyledInput onChange={e => setName(e.target.value)} value={name} type="text" id="name" name="name" />
-                    </div>  
-                    <div className="input-style">
-                        <label htmlFor='name'>Email</label>
-                        <StyledInput onChange={e => setEmail(e.target.value)} value={email} type="email" id="email" name="email" />
-                    </div>
-                    <div className="input-style">
-                        <label htmlFor='name'>Phone Number</label>
-                        <StyledInput onChange={e => setPhone(e.target.value)} value={phone} type="tel" id="phone" name="phone" />
+                    <div className='group'>
+                        <H1>Contact Information</H1>
+                        <div className="form-container" style={{ display: "flex" }}>
+                            <div className="input-style">
+                                <label htmlFor='name'>Name</label>
+                                <StyledInput onChange={e => setName(e.target.value)} value={name} type="text" id="name" name="name" />
+                            </div>  
+                            <div className="input-style">
+                                <label htmlFor='name'>Email</label>
+                                <StyledInput onChange={e => setEmail(e.target.value)} value={email} type="email" id="email" name="email" />
+                            </div>
+                            <div className="input-style">
+                                <label htmlFor='name'>Phone Number</label>
+                                <StyledInput onChange={e => setPhone(e.target.value)} value={phone} type="tel" id="phone" name="phone" />
+                            </div>
+                            <div className="input-style">
+                                <label htmlFor='name'>Best Contact Method</label>
+                                <StyledSelect onChange={e => setBestContact(e.target.value)} value={bestContact} name="bestContact" id="bestContact">
+                                    <option disabled >Select...</option>
+                                    <option value="Phone">Phone</option>
+                                    <option value="Email">Email</option>
+                                </StyledSelect>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div className="input-style">
-                        <label htmlFor='name'>Best Contact Method</label>
-                        <StyledSelect onChange={e => setBestContact(e.target.value)} value={bestContact} name="bestContact" id="bestContact">
-                            <option disabled >Select...</option>
-                            <option value="Phone">Phone</option>
-                            <option value="Email">Email</option>
-                        </StyledSelect>
-                    </div>
-
-                    <div className="input-style">
-                        <label htmlFor='name'>Street</label>
-                        <StyledInput onChange={e => setAddress(e.target.value)} value={address} type="text" id="address" name="address" />
-                    </div>
-                    <div className="input-style">
-                        <label htmlFor='name'>City</label>
-                        <StyledInput onChange={e => setCity(e.target.value)} value={city} type="text" id="city" name="city" />
-                    </div>
-                    <div className="input-style">
-                        <label htmlFor='name'>Zip Code</label>
-                        <StyledInput onChange={e => setZipcode(e.target.value)} value={zipcode} type="number" id="zipcode" name="zipcode" />
+                    <div className='group'>
+                        <H1>Location</H1>
+                        <div className="form-container" style={{ display: "flex" }}>
+                            <div className="input-style">
+                                <label htmlFor='name'>City</label>
+                                <StyledInput onChange={e => setCity(e.target.value)} value={city} type="text" id="city" name="city" />
+                            </div>
+                            <div className="input-style">
+                                <label htmlFor='name'>Street</label>
+                                <StyledInput onChange={e => setAddress(e.target.value)} value={address} type="text" id="address" name="address" />
+                            </div>
+                            <div className="input-style">
+                                <label htmlFor='name'>Zip Code</label>
+                                <StyledInput onChange={e => setZipcode(e.target.value)} value={zipcode} type="number" id="zipcode" name="zipcode" />
+                            </div>
+                            <div className="input-style">
+                                <label htmlFor='name'>HOA Community?</label>
+                                <StyledSelect onChange={e => setHoa(e.target.value)} value={hoa} name="hoa" id="hoa" required>
+                                    <option disabled >Select...</option>
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </StyledSelect>
+                            </div>
+                        </div>
                     </div>
                     
                     <div className="input-style">
                         <StyledInput onChange={e => setRequestType(e.target.value)} value={requestType} type="hidden" id="requestType" name="requestType"/>
-                    </div>
-
-                    <div className="input-style">
-                        <label htmlFor='name'>HOA Community?</label>
-                        <StyledSelect onChange={e => setHoa(e.target.value)} value={hoa} name="hoa" id="hoa" required>
-                            <option disabled >Select...</option>
-                            <option value="No">No</option>
-                            <option value="Yes">Yes</option>
-                        </StyledSelect>
                     </div>
 
                 </FormGroup>
@@ -351,20 +360,23 @@ const Form = (props) => {
                 </FormGroup>
                 
                 {/* DYNAMIC ITEMS */}
-                <FormGroup>
-                    <FormItems 
-                    formType={props.formType} 
-                    setProblemLocation={setProblemLocation} 
-                    problemLocation={problemLocation}
-                    setServiceType={setServiceType}
-                    serviceType={serviceType}
-                    setStartDate={setStartDate}
-                    startDate={startDate}
-                    setEndDate={setEndDate}
-                    endDate={endDate}
-                    handleCheckboxChange={handleCheckboxChange}
-                    />
-                </FormGroup>
+                <div className='group'>
+                    { props.formType === "quote" && <H1>Services</H1> }
+                    <FormGroup>
+                        <FormItems
+                            formType={props.formType} 
+                            setProblemLocation={setProblemLocation} 
+                            problemLocation={problemLocation}
+                            setServiceType={setServiceType}
+                            serviceType={serviceType}
+                            setStartDate={setStartDate}
+                            startDate={startDate}
+                            setEndDate={setEndDate}
+                            endDate={endDate}
+                            handleCheckboxChange={handleCheckboxChange}
+                        />
+                    </FormGroup>
+                </div>
 
                 <Buttons>
                     <ButtonLink className='buttonStyle' to='/'>Cancel</ButtonLink>
@@ -374,7 +386,6 @@ const Form = (props) => {
                     loading={loading}
                     cssOverride={{ margin: 0}}
                     /> : "Submit"}</Button>
-                    
                 </Buttons> 
                 
             </StyledForm>
@@ -385,6 +396,10 @@ const Form = (props) => {
 export default Form
 
 // STYLES
+const H1 = styled.h1`
+    margin: 0px;
+`
+
 const SwalText = styled.p`
     font-size: 1.45vw;
     text-shadow: none;
@@ -411,7 +426,8 @@ const HeaderStyle = styled.h1`
 `
 
 const FormGroup = styled.div`
-    display: flexbox;
+    display: flex;
+    flex-direction: row;
     flex-flow: column wrap;
     justify-content: center;
 
@@ -432,8 +448,14 @@ const Spinner = styled(MoonLoader)`
 
 const Buttons = styled.div`
     display: flex;
-    justify-content: center;
-    margin-top: 2vw;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    flex: 1;
+    background-color: #ffffff3d;
+    border-radius: 10px;
+    padding: 3vw;
+    margin-top: 30px;
 `
 
 const StyledForm = styled.form`
@@ -448,15 +470,12 @@ const StyledForm = styled.form`
 
 const Button = styled.button`
     margin-left: 1vw;
-    /* margin-right: 1vw; */
     padding: 10px;
     align-items: center;
     color: #ffffff;
     font-weight: bold;
     border-radius: 10px;
     border: none;
-    /* width: 5vw;
-    height: 2.5vw; */
     box-shadow: 0px 0px 10px 0px #00000052;
     text-shadow: #000000c0 0px 0px 10px;
     filter: brightness(80%);
@@ -511,9 +530,10 @@ const StyledInput = styled.input`
 
     outline: none;
     border: none;
-    padding: 0.5vw;
-    margin: 10px;
+    padding: 12px;
     border-radius: 5px;
+    margin-top: 8px;
+    flex: 1;
     box-shadow: 0px 0px 10px 0px #00000052;
 
     font-family: 'Hanalei Fill', arial;
@@ -521,10 +541,6 @@ const StyledInput = styled.input`
     -moz-osx-font-smoothing: grayscale;
     color: #000000;
     background-color: #ffffffc3;
-
-    @media (max-width: 500px) {
-        padding: 3vw;
-    }
 `
 
 const StyledCheckBox = styled.input`
@@ -554,9 +570,9 @@ const StyledSelect = styled.select`
 
     outline: none;
     border: none;
-    padding: 0.5vw;
-    margin: 10px;
+    padding: 12px;
     border-radius: 5px;
+    margin-top: 8px;
     box-shadow: 0px 0px 10px 0px #00000052;
 
     font-family: 'Hanalei Fill', arial;
@@ -564,10 +580,6 @@ const StyledSelect = styled.select`
     -moz-osx-font-smoothing: grayscale;
     color: #000000;
     background-color: #ffffffc3;
-
-    @media (max-width: 500px) {
-        padding: 3vw;
-    }
 `
 
 const StyledTextarea = styled.textarea`
