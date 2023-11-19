@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/azholidayilluminations/static/css/main.a94f86cd.css",
+    "main.js": "/azholidayilluminations/static/js/main.d500ee5f.js",
+    "static/js/787.05c3c414.chunk.js": "/azholidayilluminations/static/js/787.05c3c414.chunk.js",
+    "static/media/logo.png": "/azholidayilluminations/static/media/logo.2420f4b18e9668c3a322.png",
+    "static/media/img8.jpg": "/azholidayilluminations/static/media/img8.80f65d3f91f55b2d159e.jpg",
+    "static/media/img7.jpg": "/azholidayilluminations/static/media/img7.9021e025b88aef1b7972.jpg",
+    "static/media/img13.jpg": "/azholidayilluminations/static/media/img13.c788b359454a22fc157f.jpg",
+    "static/media/img2.jpeg": "/azholidayilluminations/static/media/img2.fe19bc3a8123940bbbde.jpeg",
+    "static/media/img3.jpg": "/azholidayilluminations/static/media/img3.3668ac849f685243fab4.jpg",
+    "static/media/instagram.png": "/azholidayilluminations/static/media/instagram.8e408da00539cdef4629.png",
+    "static/media/img1.jpg": "/azholidayilluminations/static/media/img1.9d712b45ae5eaef7eb7e.jpg",
+    "static/media/img9.jpg": "/azholidayilluminations/static/media/img9.c5d8a006525146db0c1d.jpg",
+    "static/media/img10.jpg": "/azholidayilluminations/static/media/img10.bf4a0f83fd470c5a5c5e.jpg",
+    "static/media/img16.jpg": "/azholidayilluminations/static/media/img16.2f15e59cb755137563f7.jpg",
+    "static/media/img4.jpg": "/azholidayilluminations/static/media/img4.7f8619cb1cbfbf9ddabb.jpg",
+    "static/media/img14.jpg": "/azholidayilluminations/static/media/img14.d8a7a1626c04df5abbe5.jpg",
+    "static/media/img15.jpg": "/azholidayilluminations/static/media/img15.a09e0ecb526d1b32802e.jpg",
+    "static/media/img12.jpg": "/azholidayilluminations/static/media/img12.69e01f6e61db8aece47c.jpg",
+    "static/media/bell.png": "/azholidayilluminations/static/media/bell.f8278b18d21b22103596.png",
+    "static/media/request.png": "/azholidayilluminations/static/media/request.c95eea6ea480320d882e.png",
+    "static/media/twitter.png": "/azholidayilluminations/static/media/twitter.0e1e6d9ce9f7065313c7.png",
+    "static/media/img11.jpg": "/azholidayilluminations/static/media/img11.f0c7f52f5794b4a74447.jpg",
+    "static/media/yelp.png": "/azholidayilluminations/static/media/yelp.fff5d774e42086a0cf83.png",
+    "static/media/takedown.png": "/azholidayilluminations/static/media/takedown.75035d9ae0f45df5569d.png",
+    "static/media/repair.png": "/azholidayilluminations/static/media/repair.1a7dc12f9383f3ba5755.png",
+    "static/media/ornament.png": "/azholidayilluminations/static/media/ornament.9cd013beb001c691764c.png",
+    "index.html": "/azholidayilluminations/index.html",
+    "main.a94f86cd.css.map": "/azholidayilluminations/static/css/main.a94f86cd.css.map",
+    "main.d500ee5f.js.map": "/azholidayilluminations/static/js/main.d500ee5f.js.map",
+    "787.05c3c414.chunk.js.map": "/azholidayilluminations/static/js/787.05c3c414.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a94f86cd.css",
+    "static/js/main.d500ee5f.js"
+  ]
+}
